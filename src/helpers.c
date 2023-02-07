@@ -23,5 +23,12 @@ void print_matrix(matrix_t *matrix) {
     }
 }
 
+int is_matrix_size_negative(matrix_t matrix) {
+    int status = 0;
+    if (matrix.rows < 0 || matrix.columns < 0)
+        status = 1;
+    return status;
+}
+
 
 
