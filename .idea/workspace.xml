@@ -11,12 +11,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97cae01b-d803-4596-896d-b517debba428" name="Changes" comment="minor chg">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="97cae01b-d803-4596-896d-b517debba428" name="Changes" comment="s21_eq_matrix">
+      <change afterPath="$PROJECT_DIR$/src/s21_sub_matrix.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/s21_sum_matrix.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/helpers.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/s21_eq_matrix.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/s21_eq_matrix.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/s21_matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/s21_matrix.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +56,13 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunManager" selected="CMake Application.C6_s21_matrix_0_master">
     <configuration name="C6_s21_matrix_0_master" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="C6_s21_matrix_0_master" TARGET_NAME="C6_s21_matrix_0_master" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="C6_s21_matrix_0_master" RUN_TARGET_NAME="C6_s21_matrix_0_master">
@@ -100,7 +105,7 @@
       <workItem from="1675530382253" duration="61000" />
       <workItem from="1675530456368" duration="419000" />
       <workItem from="1675787911628" duration="2863000" />
-      <workItem from="1675875247303" duration="4373000" />
+      <workItem from="1675875247303" duration="7122000" />
     </task>
     <task id="LOCAL-00001" summary="s21_create_matrix, s21_free_matrix, print_matrix, fill_matrix">
       <created>1675708293501</created>
@@ -116,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675791283713</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="s21_eq_matrix">
+      <created>1675879754188</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675879754188</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="s21_create_matrix, s21_free_matrix, print_matrix, fill_matrix" />
     <MESSAGE value="minor chg" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor chg" />
+    <MESSAGE value="s21_eq_matrix" />
+    <option name="LAST_COMMIT_MESSAGE" value="s21_eq_matrix" />
   </component>
 </project>

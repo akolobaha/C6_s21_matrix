@@ -1,12 +1,12 @@
 #include "s21_matrix.h"
 
-void fill_matrix(matrix_t *matrix) {
+void fill_matrix(matrix_t *matrix, int mul) {
     int count = 0;
     double **m_ptr = matrix->matrix;
 
     for (int i = 0; i < matrix->columns; i++) {
         for (int j = 0; j < matrix->rows; j++) {
-            m_ptr[i][j] = ++count;
+            m_ptr[i][j] = (++count * mul);
         }
     }
 }
@@ -21,6 +21,7 @@ void print_matrix(matrix_t *matrix) {
             printf("%12.7f ", m_ptr[i][j]);
         }
     }
+    printf("\n");
 }
 
 int is_matrix_size_positive(matrix_t matrix) {
