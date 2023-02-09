@@ -19,7 +19,7 @@ int main() {
     s21_create_matrix(5, 4, &matrix_res);
 
 
-    printf("\neq_matr: %d", s21_sub_matrix(&matrix_a, &matrix_b, &matrix_res));
+    printf("\neq_matr: %d", s21_mult_number(&matrix_a, 3, &matrix_res));
 
     print_matrix(&matrix_res);
 
