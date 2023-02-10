@@ -2,16 +2,16 @@
 
 int main() {
     matrix_t matrix_a;
-    s21_create_matrix(2, 5, &matrix_a);
+    s21_create_matrix(3, 3, &matrix_a);
 
-//    fill_matrix(&matrix_a, 4);
-//    matrix_a.matrix[0][0] = 1;
-//    matrix_a.matrix[1][0] = 2;
-//    matrix_a.matrix[2][0] = 3;
-//
-//    matrix_a.matrix[0][1] = 4;
-//    matrix_a.matrix[1][1] = 5;
-//    matrix_a.matrix[2][1] = 6;
+    fill_matrix(&matrix_a, 4);
+    matrix_a.matrix[0][0] = 1;
+    matrix_a.matrix[1][0] = 2;
+    matrix_a.matrix[2][0] = 3;
+
+    matrix_a.matrix[0][1] = 4;
+    matrix_a.matrix[1][1] = 5;
+    matrix_a.matrix[2][1] = 6;
 
     fill_matrix(&matrix_a, 1);
 
@@ -38,13 +38,15 @@ int main() {
 
     matrix_t matrix_res;
 
+    fill_matrix_val(&matrix_res, 0);
+
 //    printf("consistent: %d", is_matrix_consistent(matrix_a, matrix_b));
 
 //    printf("\neq_matr: %d", s21_mult_matrix(&matrix_a, &matrix_b, &matrix_res));
 
 //    print_matrix(&matrix_res);
 
-    s21_transpose(&matrix_a, &matrix_res);
+    s21_calc_complements(&matrix_a, &matrix_res);
 
     print_matrix(&matrix_res);
 
