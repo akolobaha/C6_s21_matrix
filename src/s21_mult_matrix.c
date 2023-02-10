@@ -5,7 +5,7 @@ int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
     int res = SUCCESS;
 
 
-    if (!is_matrix_size_equal(A, B) || !is_matrix_size_equal(A, result))
+    if (!is_matrix_consistent(*A, *B))
         status = CALC_ERROR;
 
     if (is_matrix_size_positive(*A))
@@ -14,14 +14,13 @@ int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
     if (status == INCORRECT_M || status == CALC_ERROR)
         res = FAILURE;
 
-    printf("status: %d", status);
+    s21_create_matrix(A->rows, A->rows, result);
+    fill_matrix_val(result, 0);
 
-    for (int i = 0; i < A->columns && res == SUCCESS; i++) {
-        printf("i: %d\n", i);
-        for (int j = 0; j < A->rows; j++) {
-            result->matrix[i][j] = A->matrix[i][j] * B->matrix[i][j];
-        }
-    }
+    for (int i = 0; i < A->rows && res == SUCCESS; i++)
+        for (int j = 0; j < B->columns; j++)
+            for (int k = 0; k < A->columns; k++)
+                result->matrix[i][j] += A->matrix[i][k] * B->matrix[k][j];
 
     return res;
 }

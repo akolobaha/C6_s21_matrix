@@ -11,6 +11,12 @@ void fill_matrix(matrix_t *matrix, int mul) {
     }
 }
 
+void fill_matrix_val(matrix_t *matrix, int val) {
+    for (int i = 0; i < matrix->rows; i++)
+        for (int j = 0; j < matrix->columns; j++)
+            matrix->matrix[i][j] = val;
+}
+
 void print_matrix(matrix_t *matrix) {
     int count = 0;
     double **m_ptr = matrix->matrix;
