@@ -8,14 +8,22 @@ int main() {
     matrix_a.matrix[0][0] = 1;
     matrix_a.matrix[1][0] = 0;
     matrix_a.matrix[2][0] = 5;
+//    matrix_a.matrix[3][0] = 5;
 
     matrix_a.matrix[0][1] = 2;
     matrix_a.matrix[1][1] = 4;
     matrix_a.matrix[2][1] = 2;
+//    matrix_a.matrix[3][1] = 2;
 
     matrix_a.matrix[0][2] = 3;
     matrix_a.matrix[1][2] = 2;
     matrix_a.matrix[2][2] = 1;
+//    matrix_a.matrix[3][2] = 1;
+
+//    matrix_a.matrix[0][3] = 3;
+//    matrix_a.matrix[1][3] = 2;
+//    matrix_a.matrix[2][3] = 1;
+//    matrix_a.matrix[3][3] = 1;
 
 //    fill_matrix(&matrix_a, 1);
 

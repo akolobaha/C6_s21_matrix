@@ -36,5 +36,6 @@ int compare_doubles(double a, double b);
 void fill_matrix(matrix_t *matrix, int mul);
 void fill_matrix_val(matrix_t *matrix, int val);
 void print_matrix(matrix_t *matrix);
-double matrix_minor(int col, int row, matrix_t *A);
+double count_minor(int col, int row, matrix_t *A);
+void get_minor(int col, int row, matrix_t *A, matrix_t *result);
 

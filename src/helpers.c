@@ -57,8 +57,37 @@ int compare_doubles(double a, double b) {
     return fabs(a - b) < TOL;
 }
 
-double matrix_minor(int col, int row, matrix_t *A) {
+// Обрезка матрицы
+void get_minor(int col, int row, matrix_t *A, matrix_t *result) {
+    int row_to_set = 0;
+    int col_to_set;
 
+    s21_create_matrix(A->rows - 1, A->columns - 1, result);
+    for (int i = 0; i < A->rows; i++) {
+        col_to_set = 0;
+        if (i == col) continue;
+
+        for (int j = 0; j < A->columns; j++) {
+            if (j == row) continue;
+            result->matrix[row_to_set][col_to_set++] = A->matrix[i][j];
+        }
+        row_to_set++;
+    }
+}
+
+double count_minor(int col, int row, matrix_t *A) {
+    matrix_t minor_result;
+    get_minor(col, row, A, &minor_result);
+
+    if (minor_result.rows == 2 && minor_result.columns == 2) {
+        print_matrix(&minor_result);
+        return minor_result.matrix[0][0] * minor_result.matrix[0][3] - minor_result.matrix[0][1] * minor_result.matrix[0][2];
+    }
+    else
+        return 22;
+
+
+    if (A->rows == 3 && A->columns == 3) {
         double args[4];
         double minor = 0;
 
@@ -75,4 +104,22 @@ double matrix_minor(int col, int row, matrix_t *A) {
 
 
         return minor;
+    } else {
+        // Взять кваддратную матрицу в виде кусочка
+        // Аллоцировать память под новую матрицу
+        matrix_t smaller_m;
+        s21_create_matrix(A->columns - 1, A->rows - 1, &smaller_m);
+
+        int k = 0;
+        for (int i = 0; i < A->rows; i++) {
+            if (i == col) continue;
+            for (int j = 0; j < A->columns; j++) {
+                if (j == row) continue;
+                printf("%f ", A->matrix[i][j]);
+            }
+        }
+
+        print_matrix(A);
+        return 22;
+    }
 }
