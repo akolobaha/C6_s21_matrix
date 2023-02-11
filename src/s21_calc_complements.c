@@ -3,7 +3,11 @@
 int s21_calc_complements(matrix_t *A, matrix_t *result) {
     // Проверка на то, что матрицы квадратные
 
-    double minor = matrix_minor(0, 0, A, result);
+    s21_create_matrix(A->rows, A->columns, result);
+
+    for (int i = 0; i < A->rows; i++)
+        for (int j = 0; j < A->columns; j++)
+            result->matrix[i][j] = matrix_minor(i, j, A);
 
     return 0;
 }

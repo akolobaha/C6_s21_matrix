@@ -20,7 +20,6 @@ void fill_matrix_val(matrix_t *matrix, int val) {
 void print_matrix(matrix_t *matrix) {
     int count = 0;
     double **m_ptr = matrix->matrix;
-    m_ptr[1][1];
     for (int i = 0; i < matrix->rows; i++) {
         printf("\n");
         for (int j = 0; j < matrix->columns; j++) {
@@ -58,10 +57,8 @@ int compare_doubles(double a, double b) {
     return fabs(a - b) < TOL;
 }
 
-double matrix_minor(int col, int row, matrix_t *A, matrix_t *result) {
-    s21_create_matrix(A->rows - 1, A->columns - 1, result);
+double matrix_minor(int col, int row, matrix_t *A) {
 
-    if (result->rows == 2 && result->columns == 2) {
         double args[4];
         double minor = 0;
 
@@ -76,26 +73,6 @@ double matrix_minor(int col, int row, matrix_t *A, matrix_t *result) {
 
         minor = args[0] * args[3] - args[1] * args[2];
 
+
         return minor;
-    } else {
-        matrix_minor
-    }
-
-
-
-
-
-//    if (result->rows == 2 && result->columns == 2) {
-//        double minor =
-//            result->matrix[0][0] * result->matrix[0][1] -
-//            result->matrix[1][0] * result->matrix[1][1];
-
-
-
-//        return minor;
-//    } else {
-//        return matrix_minor(--col, --row, A, result);
-//    }
-
-    return 1;
 }
