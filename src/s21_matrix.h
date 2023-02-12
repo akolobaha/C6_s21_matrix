@@ -31,6 +31,9 @@ int s21_calc_complements(matrix_t *A, matrix_t *result);
 
 int s21_determinant(matrix_t *A, double *result);
 
+int s21_inverse_matrix(matrix_t *A, matrix_t *result);
+
+
 int is_matrix_size_positive(matrix_t matrix);
 int is_matrix_size_equal(matrix_t *A, matrix_t *B);
 int is_matrix_consistent(matrix_t A, matrix_t B);
