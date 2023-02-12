@@ -58,7 +58,7 @@ int compare_doubles(double a, double b) {
 }
 
 // Обрезка матрицы
-void get_minor(int col, int row, matrix_t *A, matrix_t *result) {
+void cut_matrix(int col, int row, matrix_t *A, matrix_t *result) {
     int row_to_set = 0;
     int col_to_set;
 
@@ -77,11 +77,12 @@ void get_minor(int col, int row, matrix_t *A, matrix_t *result) {
 
 double count_minor(int col, int row, matrix_t *A) {
     matrix_t minor_result;
-    get_minor(col, row, A, &minor_result);
+    cut_matrix(col, row, A, &minor_result);
 
     if (minor_result.rows == 2 && minor_result.columns == 2) {
         print_matrix(&minor_result);
-        return minor_result.matrix[0][0] * minor_result.matrix[0][3] - minor_result.matrix[0][1] * minor_result.matrix[0][2];
+        return minor_result.matrix[0][0] * minor_result.matrix[0][3]
+            - minor_result.matrix[0][1] * minor_result.matrix[0][2];
     }
     else
         return 22;

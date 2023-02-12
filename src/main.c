@@ -6,18 +6,18 @@ int main() {
 
 //    fill_matrix(&matrix_a, 4);
     matrix_a.matrix[0][0] = 1;
-    matrix_a.matrix[1][0] = 0;
-    matrix_a.matrix[2][0] = 5;
+    matrix_a.matrix[1][0] = 4;
+    matrix_a.matrix[2][0] = 7;
 //    matrix_a.matrix[3][0] = 5;
 
     matrix_a.matrix[0][1] = 2;
-    matrix_a.matrix[1][1] = 4;
-    matrix_a.matrix[2][1] = 2;
+    matrix_a.matrix[1][1] = 5;
+    matrix_a.matrix[2][1] = 8;
 //    matrix_a.matrix[3][1] = 2;
 
     matrix_a.matrix[0][2] = 3;
-    matrix_a.matrix[1][2] = 2;
-    matrix_a.matrix[2][2] = 1;
+    matrix_a.matrix[1][2] = 6;
+    matrix_a.matrix[2][2] = 9;
 //    matrix_a.matrix[3][2] = 1;
 
 //    matrix_a.matrix[0][3] = 3;
@@ -50,7 +50,12 @@ int main() {
 
     matrix_t matrix_res;
 
-    fill_matrix_val(&matrix_res, 0);
+    double det_result;
+    det_result = 0;
+
+    s21_determinant(&matrix_a, &det_result);
+
+    printf("determinant %f", det_result);
 
 //    printf("consistent: %d", is_matrix_consistent(matrix_a, matrix_b));
 
@@ -58,7 +63,7 @@ int main() {
 
 //    print_matrix(&matrix_res);
 
-    s21_calc_complements(&matrix_a, &matrix_res);
+//    s21_calc_complements(&matrix_a, &matrix_res);
 
     print_matrix(&matrix_res);
 

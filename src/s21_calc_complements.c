@@ -10,7 +10,7 @@ int s21_calc_complements(matrix_t *A, matrix_t *result) {
         for (int j = 0; j < A->columns; j++) {
             result->matrix[i][j] = count_minor(i, j, A);
 
-//            get_minor(i, j, A, &minor_result);
+//            cut_matrix(i, j, A, &minor_result);
 
 
 

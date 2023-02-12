@@ -29,6 +29,8 @@ int s21_transpose(matrix_t *A, matrix_t *result);
 
 int s21_calc_complements(matrix_t *A, matrix_t *result);
 
+int s21_determinant(matrix_t *A, double *result);
+
 int is_matrix_size_positive(matrix_t matrix);
 int is_matrix_size_equal(matrix_t *A, matrix_t *B);
 int is_matrix_consistent(matrix_t A, matrix_t B);
@@ -37,5 +39,5 @@ void fill_matrix(matrix_t *matrix, int mul);
 void fill_matrix_val(matrix_t *matrix, int val);
 void print_matrix(matrix_t *matrix);
 double count_minor(int col, int row, matrix_t *A);
-void get_minor(int col, int row, matrix_t *A, matrix_t *result);
+void cut_matrix(int col, int row, matrix_t *A, matrix_t *result);
 
