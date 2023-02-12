@@ -10,9 +10,11 @@ typedef struct matrix_struct {
 
 enum status {OK, INCORRECT_M, CALC_ERROR};
 
+enum eq_status {FAILURE, SUCCESS};
+
 #define TOL 0.0000001
-#define SUCCESS 1
-#define FAILURE 0
+//#define SUCCESS 1
+//#define FAILURE 0
 
 
 int s21_create_matrix(int rows, int columns, matrix_t *result);

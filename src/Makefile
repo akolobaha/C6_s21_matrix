@@ -9,15 +9,20 @@ s21_matrix.a: clean
 	ar rcs s21_matrix.a *.o
 	ranlib s21_matrix.a
 
-test: s21_matrix.a
-	$(CC) $(CFLAGS) -c unit_test.c -o unit_test.o
+test1: s21_matrix.a
+	$(CC) $(CFLAGS) -c unit_tests.c -o unit_test.o
 	$(CC) unit_test.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
 	./s21_matrix
 
 test2: s21_matrix.a
-	$(CC) $(CFLAGS) -c tests.c -o tests.o
-	$(CC) tests.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
+	$(CC) $(CFLAGS) -c tests.c -o test.o
+	$(CC) test.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
 	./s21_matrix
+
+#test2: s21_matrix.a
+#	$(CC) $(CFLAGS) -c tests.c -o tests.o
+#	$(CC) tests.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
+#	./s21_matrix
 
 gcov_report: s21_matrix.a
 	$(CC) $(FLAGS) --coverage unit_tests.c s21_*.c s21_matrix.a $(TEST_LIBS) -o gcov_test

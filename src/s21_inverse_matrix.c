@@ -16,8 +16,6 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
         // Транспонированная матрица алгебраических дополнений
         s21_transpose(&calc_comp, result);
 
-
-
     } else {
         // Обратной матрицы не существует
     }

@@ -17,7 +17,6 @@ int s21_mult_number(matrix_t *A, double number, matrix_t *result) {
     printf("status: %d", status);
 
     for (int i = 0; i < A->columns && res == SUCCESS; i++) {
-        printf("i: %d\n", i);
         for (int j = 0; j < A->rows; j++) {
             result->matrix[i][j] = A->matrix[i][j] * number;
         }

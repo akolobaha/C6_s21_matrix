@@ -4,13 +4,17 @@ int s21_eq_matrix(matrix_t *A, matrix_t *B) {
     int status = OK;
     int result = SUCCESS;
 
-    if (is_matrix_size_positive(*A) || is_matrix_size_positive(*B))
-        status = INCORRECT_M;
-
+//    if (is_matrix_size_positive(*A) || is_matrix_size_positive(*B))
+//        status = INCORRECT_M;
+//
     if (!is_matrix_size_equal(A, B))
-        status = CALC_ERROR;
+        result = FAILURE;
+//
+//    if (status == INCORRECT_M || status == CALC_ERROR)
+//        result = FAILURE;
 
-    if (status == INCORRECT_M || status == CALC_ERROR)
+
+    if (A->matrix == NULL && B->matrix == NULL)
         result = FAILURE;
 
     for (int i = 0; i < A->columns && result == SUCCESS; i++) {

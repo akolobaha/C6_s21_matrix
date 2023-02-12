@@ -14,7 +14,6 @@ int s21_sub_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
         res = FAILURE;
 
     for (int i = 0; i < A->columns && res == SUCCESS; i++) {
-        printf("i: %d\n", i);
         for (int j = 0; j < A->rows; j++) {
             result->matrix[i][j] = A->matrix[i][j] - B->matrix[i][j];
         }

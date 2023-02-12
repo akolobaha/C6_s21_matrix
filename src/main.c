@@ -1,6 +1,35 @@
 #include "s21_matrix.h"
 
 int main() {
+
+    matrix_t A = {NULL, 0, 0};
+    matrix_t B = {NULL, 0, 0};
+    matrix_t result = {NULL, 0, 0};
+    matrix_t result_full = {NULL, 0, 0};
+    s21_create_matrix(5, 5, &A);
+    s21_create_matrix(5, 5, &B);
+    s21_create_matrix(5, 5, &result_full);
+
+    for (int i = 0; i < A.rows; i++) {
+        for (int j = 0; j < A.columns; j++) {
+            A.matrix[i][j] = j + 1 + 0.0000001;
+            B.matrix[i][j] = j + 1 + 0.0000001;
+            result_full.matrix[i][j] = j + 1 + A.matrix[i][j] + 0.0000001;
+        }
+    }
+
+    print_matrix(&A);
+    print_matrix(&A);
+    print_matrix(&result_full);
+
+    int res = s21_sum_matrix(&A, &B, &result);
+
+    printf("res: %d", res);
+
+
+    return 0;
+
+
     matrix_t matrix_a;
     s21_create_matrix(3, 3, &matrix_a);
 
@@ -53,7 +82,7 @@ int main() {
     double det_result;
     det_result = 0;
 
-    s21_calc_complements(&matrix_a, &matrix_res);
+    s21_inverse_matrix(&matrix_a, &matrix_res);
 
     printf("determinant %f", det_result);
 

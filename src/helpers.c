@@ -29,6 +29,7 @@ void print_matrix(matrix_t *matrix) {
     printf("\n");
 }
 
+
 int is_matrix_size_positive(matrix_t matrix) {
     int status = 0;
     if (matrix.rows < 0 || matrix.columns < 0)
