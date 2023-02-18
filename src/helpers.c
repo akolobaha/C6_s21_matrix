@@ -45,6 +45,14 @@ int is_matrix_size_equal(matrix_t *A, matrix_t *B) {
     return status;
 }
 
+int is_matrix_correct(matrix_t *A) {
+    int status = 0;
+    if (A->columns > 0 && A->rows > 0)
+        status = 1;
+
+    return status;
+}
+
 // Консистентны, ширина равна длинне и наоборот
 int is_matrix_consistent(matrix_t A, matrix_t B) {
     int status = 0;

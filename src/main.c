@@ -6,26 +6,35 @@ int main() {
     matrix_t B = {NULL, 0, 0};
     matrix_t result = {NULL, 0, 0};
     matrix_t result_full = {NULL, 0, 0};
-    s21_create_matrix(5, 5, &A);
-    s21_create_matrix(5, 5, &B);
-    s21_create_matrix(5, 5, &result_full);
+
+    s21_create_matrix(2, 3, &A);
+    s21_create_matrix(2, 3, &B);
+    s21_create_matrix(2, 3, &result_full);
 
     for (int i = 0; i < A.rows; i++) {
         for (int j = 0; j < A.columns; j++) {
-            A.matrix[i][j] = j + 1 + 0.0000001;
-            B.matrix[i][j] = j + 1 + 0.0000001;
-            result_full.matrix[i][j] = j + 1 + A.matrix[i][j] + 0.0000001;
+            A.matrix[i][j] = j + 1 + 81230.0000001;
+            B.matrix[i][j] = j + 1 + 2.0000001;
+            result_full.matrix[i][j] = A.matrix[i][j] - B.matrix[i][j];
         }
     }
 
     print_matrix(&A);
-    print_matrix(&A);
-    print_matrix(&result_full);
+    print_matrix(&B);
+    print_matrix(&result);
 
-    int res = s21_sum_matrix(&A, &B, &result);
+    int ass_0 = s21_sub_matrix(&A, &B, &result);
 
-    printf("res: %d", res);
-
+//    for (int i = 0; i < A.rows; i++) {
+//        for (int j = 0; j < A.columns; j++) {
+//            printf("%f == %f\n", result.matrix[i][j], result_full.matrix[i][j]);
+//        }
+//    }
+//
+//    s21_remove_matrix(&A);
+//    s21_remove_matrix(&B);
+//    s21_remove_matrix(&result);
+//    s21_remove_matrix(&result_full);
 
     return 0;
 
