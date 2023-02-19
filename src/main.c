@@ -2,39 +2,28 @@
 
 int main() {
 
+
     matrix_t A = {NULL, 0, 0};
     matrix_t B = {NULL, 0, 0};
     matrix_t result = {NULL, 0, 0};
-    matrix_t result_full = {NULL, 0, 0};
 
-    s21_create_matrix(2, 3, &A);
-    s21_create_matrix(2, 3, &B);
-    s21_create_matrix(2, 3, &result_full);
+    s21_create_matrix(1, 1, &A);
+    A.matrix[0][0] = 2.0;
+    s21_create_matrix(1, 1, &B);
+    B.matrix[0][0] = 0.5;
 
-    for (int i = 0; i < A.rows; i++) {
-        for (int j = 0; j < A.columns; j++) {
-            A.matrix[i][j] = j + 1 + 81230.0000001;
-            B.matrix[i][j] = j + 1 + 2.0000001;
-            result_full.matrix[i][j] = A.matrix[i][j] - B.matrix[i][j];
-        }
-    }
+    s21_inverse_matrix(&A, &result);
 
-    print_matrix(&A);
-    print_matrix(&B);
-    print_matrix(&result);
+    print_matrix(A);
+    print_matrix(B);
+    print_matrix(result);
+//    ck_assert_int_eq(s21_inverse_matrix(&A, &result), 0);
+//    ck_assert_double_eq(B.matrix[0][0], result.matrix[0][0]);
+    s21_remove_matrix(&A);
+    s21_remove_matrix(&B);
+    s21_remove_matrix(&result);
 
-    int ass_0 = s21_sub_matrix(&A, &B, &result);
 
-//    for (int i = 0; i < A.rows; i++) {
-//        for (int j = 0; j < A.columns; j++) {
-//            printf("%f == %f\n", result.matrix[i][j], result_full.matrix[i][j]);
-//        }
-//    }
-//
-//    s21_remove_matrix(&A);
-//    s21_remove_matrix(&B);
-//    s21_remove_matrix(&result);
-//    s21_remove_matrix(&result_full);
 
     return 0;
 
@@ -65,7 +54,7 @@ int main() {
 
 //    fill_matrix(&matrix_a, 1);
 
-    print_matrix(&matrix_a);
+    print_matrix(matrix_a);
 
 
 //    matrix_t matrix_b;
@@ -103,7 +92,7 @@ int main() {
 
 //    s21_calc_complements(&matrix_a, &matrix_res);
 
-    print_matrix(&matrix_res);
+    print_matrix(matrix_res);
 
 
 

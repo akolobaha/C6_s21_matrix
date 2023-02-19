@@ -17,13 +17,12 @@ void fill_matrix_val(matrix_t *matrix, int val) {
             matrix->matrix[i][j] = val;
 }
 
-void print_matrix(matrix_t *matrix) {
+void print_matrix(matrix_t m) {
     int count = 0;
-    double **m_ptr = matrix->matrix;
-    for (int i = 0; i < matrix->rows; i++) {
+    for (int i = 0; i < m.rows; i++) {
         printf("\n");
-        for (int j = 0; j < matrix->columns; j++) {
-            printf("%12.7f ", m_ptr[i][j]);
+        for (int j = 0; j < m.columns; j++) {
+            printf("%12.7f ", m.matrix[i][j]);
         }
     }
     printf("\n");
@@ -32,7 +31,7 @@ void print_matrix(matrix_t *matrix) {
 
 int is_matrix_size_positive(matrix_t matrix) {
     int status = 0;
-    if (matrix.rows < 0 || matrix.columns < 0)
+    if (matrix.rows <= 0 || matrix.columns <= 0)
         status = 1;
     return status;
 }

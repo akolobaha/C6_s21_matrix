@@ -43,7 +43,7 @@ int is_matrix_consistent(matrix_t A, matrix_t B);
 int compare_doubles(double a, double b);
 void fill_matrix(matrix_t *matrix, int mul);
 void fill_matrix_val(matrix_t *matrix, int val);
-void print_matrix(matrix_t *matrix);
+void print_matrix(matrix_t m);
 double count_minor(int col, int row, matrix_t *A);
 void cut_matrix(int col, int row, matrix_t *A, matrix_t *result);
 
