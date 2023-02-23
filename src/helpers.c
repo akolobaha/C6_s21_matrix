@@ -76,6 +76,25 @@ int compare_doubles(double a, double b) {
     return fabs(a - b) < TOL;
 }
 
+void get_matrix(int row, int col, matrix_t *A, matrix_t *result) {
+    int m_row = 0;
+    int m_col = 0;
+    for (int i = 0; i < A->rows; i++) {
+        if (i == row) {
+            continue;
+        }
+        m_col = 0;
+        for (int j = 0; j < A->columns; j++) {
+            if (j == col) {
+                continue;
+            }
+            result->matrix[m_row][m_col] = A->matrix[i][j];
+            m_col++;
+        }
+        m_row++;
+    }
+}
+
 // Обрезка матрицы
 void cut_matrix(int col, int row, matrix_t *A, matrix_t *result) {
     int row_to_set = 0;

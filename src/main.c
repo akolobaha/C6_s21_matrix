@@ -9,60 +9,47 @@ void s21_init_matrix(double number, matrix_t *A) {
 
 int main() {
 
-    int res = 0;
-    matrix_t A = {0};
-    matrix_t Z = {0};
-    matrix_t X = {0};
 
-    s21_create_matrix(4, 4, &A);
-    A.matrix[0][0] = -1.0;
-    A.matrix[0][1] = 2.0;
+    matrix_t A = {NULL, 0, 0};
+    matrix_t B = {NULL, 0, 0};
+    matrix_t result = {NULL, 0, 0};
+
+    s21_create_matrix(3, 3, &A);
+    A.matrix[0][0] = 2.0;
+    A.matrix[0][1] = 5.0;
     A.matrix[0][2] = 7.0;
-    A.matrix[0][3] = 9.0;
-    A.matrix[1][0] = 1.0;
-    A.matrix[1][1] = 0.0;
-    A.matrix[1][2] = 0.0;
-    A.matrix[1][3] = 0.0;
-    A.matrix[2][0] = 47.0;
-    A.matrix[2][1] = 13.0;
-    A.matrix[2][2] = 17.0;
-    A.matrix[2][3] = 21.0;
-    A.matrix[3][0] = 22.0;
-    A.matrix[3][1] = 7.0;
-    A.matrix[3][2] = 1.0;
-    A.matrix[3][3] = 3.0;
+    A.matrix[1][0] = 6.0;
+    A.matrix[1][1] = 3.0;
+    A.matrix[1][2] = 4.0;
+    A.matrix[2][0] = 5.0;
+    A.matrix[2][1] = -2.0;
+    A.matrix[2][2] = -3.0;
 
-    s21_inverse_matrix(&A, &Z);
+    s21_create_matrix(3, 3, &B);
+    B.matrix[0][0] = 1.0;
+    B.matrix[0][1] = -1.0;
+    B.matrix[0][2] = 1.0;
+    B.matrix[1][0] = -38.0;
+    B.matrix[1][1] = 41.0;
+    B.matrix[1][2] = -34.0;
+    B.matrix[2][0] = 27.0;
+    B.matrix[2][1] = -29.0;
+    B.matrix[2][2] = 24.0;
+//    ck_assert_int_eq(s21_inverse_matrix(&A, &result), 0);
 
-    s21_create_matrix(4, 4, &X);
+    s21_inverse_matrix(&A, &result);
 
-    X.matrix[0][0] = 0.0;
-    X.matrix[0][1] = 1.0;
-    X.matrix[0][2] = 0.0;
-    X.matrix[0][3] = 0.0;
-    X.matrix[1][0] = -5.0 / 23.0;
-    X.matrix[1][1] = -121.0 / 23.0;
-    X.matrix[1][2] = 2.0 / 23.0;
-    X.matrix[1][3] = 1.0 / 23.0;
-    X.matrix[2][0] = -18.0 / 23.0;
-    X.matrix[2][1] = -379.0 / 46.0;
-    X.matrix[2][2] = 19.0 / 46.0;
-    X.matrix[2][3] = -25.0 / 46.0;
-    X.matrix[3][0] = 53.0 / 69.0;
-    X.matrix[3][1] = 1061.0 / 138.0;
-    X.matrix[3][2] = -47.0 / 138.0;
-    X.matrix[3][3] = 19.0 / 46.0;
+    print_matrix(B);
+    print_matrix(result);
 
-    print_matrix(X);
-    print_matrix(Z);
-
-    res = s21_eq_matrix(&X, &Z);
+//    for (int i = 0; i < B.rows; i++) {
+//        for (int j = 0; j < B.columns; j++)
+//            ck_assert_double_eq(B.matrix[i][j], result.matrix[i][j]);
+//    }
 
     s21_remove_matrix(&A);
-    s21_remove_matrix(&X);
-    s21_remove_matrix(&Z);
-
-//    ck_assert_int_eq(res, SUCCESS);
+    s21_remove_matrix(&B);
+    s21_remove_matrix(&result);
 
 
 

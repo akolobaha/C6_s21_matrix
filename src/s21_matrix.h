@@ -45,6 +45,7 @@ int compare_doubles(double a, double b);
 void fill_matrix(matrix_t *matrix, int mul);
 void fill_matrix_val(matrix_t *matrix, int val);
 void print_matrix(matrix_t m);
+void get_matrix(int row, int col, matrix_t *A, matrix_t *result);
 double count_minor(int col, int row, matrix_t *A);
 void cut_matrix(int col, int row, matrix_t *A, matrix_t *result);
 
