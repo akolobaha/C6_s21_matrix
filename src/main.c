@@ -9,15 +9,12 @@ void s21_init_matrix(double number, matrix_t *A) {
 
 int main() {
 
-    matrix_t *matrixA = NULL;
+    matrix_t matrixA;
     matrix_t result;
+    matrixA.matrix = NULL;
 
-    printf("%d", matrixA == NULL);
-//    print_matrix(*matrixA);
-//    printf("1");
-    s21_calc_complements(matrixA, &result);
-//    ck_assert_int_eq(1, s21_calc_complements(matrixA, &result));
-
+    s21_transpose(&matrixA, &result);
+//    ck_assert_int_eq(1, s21_transpose(&matrixA, &result));
   return 0;
 
   matrix_t matrix_a;
