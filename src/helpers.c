@@ -30,7 +30,7 @@ int is_matrix_size_equal(matrix_t *A, matrix_t *B) {
 
 int is_matrix_correct(matrix_t *A) {
   int status = 0;
-  if (A->columns > 0 && A->rows > 0 && A->matrix != NULL) status = 1;
+  if (A != NULL && A->columns > 0 && A->rows > 0 && A->matrix != NULL) status = 1;
 
   return status;
 }

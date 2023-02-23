@@ -4,9 +4,7 @@ int s21_calc_complements(matrix_t *A, matrix_t *result) {
   // Проверка на то, что матрицы квадратные
   int status = OK;
 
-  if (is_matrix_size_positive(*A)) {
-    status = INCORRECT_M;
-  } else if (!is_matrix_correct(A))
+  if (!is_matrix_correct(A) || is_matrix_size_positive(*A))
     status = INCORRECT_M;
   else if (A->rows != A->columns)
     status = CALC_ERROR;
