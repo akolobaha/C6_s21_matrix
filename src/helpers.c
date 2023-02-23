@@ -52,6 +52,17 @@ int is_matrix_correct(matrix_t *A) {
     return status;
 }
 
+int s21_is_empty(matrix_t *matrix) {
+    int res = 0;
+    if (matrix == NULL || matrix->matrix == NULL || matrix->rows <= 0 ||
+        matrix->columns <= 0) {
+        res = 1;
+    } else {
+        res = 0;
+    }
+    return res;
+}
+
 // Консистентны, ширина равна длинне и наоборот
 int is_matrix_consistent(matrix_t A, matrix_t B) {
     int status = 0;

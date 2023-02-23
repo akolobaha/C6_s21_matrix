@@ -3,29 +3,16 @@
 int s21_eq_matrix(matrix_t *A, matrix_t *B) {
     int result = SUCCESS;
 
-//    if (is_matrix_size_positive(*A) || is_matrix_size_positive(*B))
-//        status = INCORRECT_M;
 
-    if (is_matrix_correct(A) && is_matrix_correct(B))
-        result = FAILURE;
-//
-    if (!is_matrix_size_equal(A, B))
-        result = FAILURE;
-
-
-//
-//    if (status == INCORRECT_M || status == CALC_ERROR)
-//        result = FAILURE;
-
-
-    if (A->matrix == NULL && B->matrix == NULL)
-        result = FAILURE;
-
-    for (int i = 0; i < A->columns && result == SUCCESS; i++) {
-        for (int j = 0; j < A->rows; j++) {
-            if (!compare_doubles(A->matrix[i][j], B->matrix[i][j]))
-                result = FAILURE;
+    if ((s21_is_empty(A) == 0 && s21_is_empty(B) == 0 &&
+         A->columns == B->columns && A->rows == B->rows)) {
+        for (int i = 0; i < A->rows && result == SUCCESS; i++) {
+            for (int j = 0; j < A->columns; j++)
+                if (!compare_doubles(A->matrix[i][j], B->matrix[i][j]))
+                    result = FAILURE;
         }
+    } else {
+        result = FAILURE;
     }
 
     return result;

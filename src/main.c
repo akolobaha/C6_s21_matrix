@@ -9,34 +9,25 @@ void s21_init_matrix(double number, matrix_t *A) {
 
 int main() {
 
+
     matrix_t A = {0};
     matrix_t B = {0};
     matrix_t C = {0};
     s21_create_matrix(3, 2, &A);
     s21_create_matrix(2, 3, &C);
     s21_init_matrix(1.0, &A);
-    C.matrix[0][0] = 1.0;
-    C.matrix[0][1] = 3.0;
-    C.matrix[0][2] = 5.0;
-    C.matrix[1][0] = 2.0;
-    C.matrix[1][1] = 4.0;
-    C.matrix[1][2] = 6.0;
-
-
-
+    C.matrix[0][0] = 1;
+    C.matrix[0][1] = 3;
+    C.matrix[0][2] = 5;
+    C.matrix[1][0] = 2;
+    C.matrix[1][1] = 4;
+    C.matrix[1][2] = 6;
 
     s21_transpose(&A, &B);
 
-//    ck_assert_int_eq(s21_transpose(&A, &B), 0);
-    print_matrix(A);
-    print_matrix(B);
-    print_matrix(C);
-
     s21_eq_matrix(&C, &B);
 
-
-
-
+//    ck_assert_int_eq(s21_transpose(&A, &B), 0);
 //    ck_assert_int_eq(s21_eq_matrix(&C, &B), 1);
     s21_remove_matrix(&A);
     s21_remove_matrix(&B);

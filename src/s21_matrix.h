@@ -40,6 +40,7 @@ int is_matrix_size_positive(matrix_t matrix);
 int is_matrix_size_equal(matrix_t *A, matrix_t *B);
 int is_matrix_correct(matrix_t *A);
 int is_matrix_consistent(matrix_t A, matrix_t B);
+int s21_is_empty(matrix_t *matrix);
 int compare_doubles(double a, double b);
 void fill_matrix(matrix_t *matrix, int mul);
 void fill_matrix_val(matrix_t *matrix, int val);
