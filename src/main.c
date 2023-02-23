@@ -9,14 +9,15 @@ void s21_init_matrix(double number, matrix_t *A) {
 
 int main() {
 
-
     int res = 0;
     double determ = 0.0;
-    matrix_t A = {NULL, 0, 0};
+    matrix_t A = {0};
+    s21_create_matrix(1, 2, &A);
 
+    print_matrix(A);
 
     res = s21_determinant(&A, &determ);
-//    ck_assert_int_eq(res, ERROR_INIT);
+//    ck_assert_int_eq(res, ERROR_CALC);
     s21_remove_matrix(&A);
 
 

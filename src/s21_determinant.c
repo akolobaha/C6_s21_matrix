@@ -5,9 +5,11 @@ int s21_determinant(matrix_t *A, double *result) {
     int degree = 1;
     int status = OK;
 
-    if (!is_matrix_correct(A)) {
+    if (!is_matrix_correct(A))
         status = INCORRECT_M;
-    }
+
+    if (A->rows != A->columns)
+        status = CALC_ERROR;
 
     if (status == OK) {
         if (A->rows == 1) {
