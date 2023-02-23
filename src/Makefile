@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = #-Wall -Wextra -Werror -std=c11 -D_GNU_SOURCE
+CFLAGS = -Wall -Wextra -Werror -std=c11 -D_GNU_SOURCE
 TEST_LIBS = -lcheck -lm -lpthread
 
 all: gcov_report
@@ -7,51 +7,33 @@ all: gcov_report
 s21_matrix.a: clean
 	$(CC) $(CFLAGS) -c s21_*.c helpers.c
 	ar rcs s21_matrix.a *.o
-	ranlib s21_matrix.a
 
-test1: s21_matrix.a
-	$(CC) $(CFLAGS) -c unit_tests.c -o unit_test.o
+test: s21_matrix.a
+	$(CC) $(CFLAGS) -c unit_test.c -o unit_test.o
 	$(CC) unit_test.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
 	./s21_matrix
 
 test2: s21_matrix.a
-	$(CC) $(CFLAGS) -c tests.c -o test.o
-	$(CC) test.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
+	$(CC) $(CFLAGS) -c unit_test2.c -o unit_test2.o
+	$(CC) unit_test2.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
 	./s21_matrix
 
-#test2: s21_matrix.a
-#	$(CC) $(CFLAGS) -c tests.c -o tests.o
-#	$(CC) tests.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
-#	./s21_matrix
+test3: s21_matrix.a
+	$(CC) $(CFLAGS) -c unit_test3.c -o unit_test3.o
+	$(CC) unit_test3.o s21_matrix.a $(TEST_LIBS) -o s21_matrix
+	./s21_matrix
 
 gcov_report: s21_matrix.a
-	$(CC) $(FLAGS) --coverage unit_tests.c s21_*.c s21_matrix.a $(TEST_LIBS) -o gcov_test
-	chmod +x *
+	$(CC) $(FLAGS) --coverage unit_test.c s21_*.c s21_matrix.a $(TEST_LIBS) -o gcov_test
 	./gcov_test
-	gcov s21_*.gcda
-	gcovr -b
-	gcovr --html-details -o report.html
-	open report.html
+	lcov -t "s21_matrix" -o s21_matrix.info -c -d .
+	genhtml -o report s21_matrix.info
+	open ./report/index.html
 
 clean:
-	rm -rf s21_matrix
-	rm -rf *.o
-	rm -rf *.a
-	rm -rf *.gcno
-	rm -rf *.gcda
-	rm -rf *.gcov
-	rm -rf *.html
-	rm -rf *.css
-	rm -rf main
-	rm -rf gcov_test
+	rm -rf test main *.o *.a *.gcno *.gcda *.info report gcov_test s21_matrix *.gcov *.dYSM report s21_matrix
 
-main: s21_matrix.a
-	$(CC) $(CFLAGS) -g main.c s21_matrix.a -o main
-	./main
-
-lint:
-	python3 ../materials/linters/cpplint.py --extension=c *.c *.h
-
-format:
-	clang-format -i *.c *.h
-	clang-format -n *.c *.h
+#clang:
+#	cp ../materials/linters/.clang-format .
+#	clang-format -n *.c *.h
+#	rm .clang-format

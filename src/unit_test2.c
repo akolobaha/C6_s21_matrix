@@ -168,8 +168,8 @@ START_TEST(eq_matrix_8) {
 END_TEST
 
 START_TEST(eq_matrix_9) {
-//  matrix_t A = {NULL, 0, 0};
-//  matrix_t A = {NULL, 0, 0};
+  //  matrix_t A = {NULL, 0, 0};
+  //  matrix_t A = {NULL, 0, 0};
 }
 END_TEST
 
@@ -196,7 +196,6 @@ START_TEST(eq_matrix_10) {
 
   ck_assert_int_eq(s21_sum_matrix(&A, &B, &result), 0);
   ck_assert_int_eq(s21_eq_matrix(&result_full, &result), 1);
-
 
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);

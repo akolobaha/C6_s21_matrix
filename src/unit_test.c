@@ -621,7 +621,6 @@ START_TEST(s21_transpose_1_1) {
 }
 END_TEST
 
-
 START_TEST(s21_transpose_2) {
   matrix_t A = {0};
   matrix_t B = {0};
