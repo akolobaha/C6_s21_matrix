@@ -4,7 +4,7 @@
 int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
     int status = OK;
 
-    if (is_matrix_correct(A)) {
+    if (!is_matrix_correct(A)) {
         status = INCORRECT_M;
     } else if (A->rows != A->columns) {
         status = CALC_ERROR;

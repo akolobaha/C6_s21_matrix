@@ -1,27 +1,46 @@
 #include "s21_matrix.h"
 
+void s21_init_matrix(double number, matrix_t *A) {
+    for (int i = 0; i < A->rows; i++) {
+        for (int j = 0; j < A->columns; number += 1.0, j++)
+            A->matrix[i][j] = number;
+    }
+}
+
 int main() {
 
+    matrix_t A = {0};
+    matrix_t B = {0};
+    matrix_t C = {0};
+    s21_create_matrix(3, 2, &A);
+    s21_create_matrix(2, 3, &C);
+    s21_init_matrix(1.0, &A);
+    C.matrix[0][0] = 1.0;
+    C.matrix[0][1] = 3.0;
+    C.matrix[0][2] = 5.0;
+    C.matrix[1][0] = 2.0;
+    C.matrix[1][1] = 4.0;
+    C.matrix[1][2] = 6.0;
 
-    matrix_t A = {NULL, 0, 0};
-    matrix_t B = {NULL, 0, 0};
-    matrix_t result = {NULL, 0, 0};
 
-    s21_create_matrix(1, 1, &A);
-    A.matrix[0][0] = 2.0;
-    s21_create_matrix(1, 1, &B);
-    B.matrix[0][0] = 0.5;
 
-    s21_inverse_matrix(&A, &result);
 
+    s21_transpose(&A, &B);
+
+//    ck_assert_int_eq(s21_transpose(&A, &B), 0);
     print_matrix(A);
     print_matrix(B);
-    print_matrix(result);
-//    ck_assert_int_eq(s21_inverse_matrix(&A, &result), 0);
-//    ck_assert_double_eq(B.matrix[0][0], result.matrix[0][0]);
+    print_matrix(C);
+
+    s21_eq_matrix(&C, &B);
+
+
+
+
+//    ck_assert_int_eq(s21_eq_matrix(&C, &B), 1);
     s21_remove_matrix(&A);
     s21_remove_matrix(&B);
-    s21_remove_matrix(&result);
+    s21_remove_matrix(&C);
 
 
 
