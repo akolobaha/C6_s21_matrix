@@ -33,7 +33,7 @@ gcov_report: s21_matrix.a
 clean:
 	rm -rf test main *.o *.a *.gcno *.gcda *.info report gcov_test s21_matrix *.gcov *.dYSM report s21_matrix
 
-#clang:
-#	cp ../materials/linters/.clang-format .
-#	clang-format -n *.c *.h
-#	rm .clang-format
+clang:
+	cp ../materials/linters/.clang-format .
+	clang-format -i *.c *.h
+	rm .clang-format
